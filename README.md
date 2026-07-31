@@ -45,12 +45,16 @@ Antes de qualquer otimização, o modelo foi validado com base na formulação d
 
 ```
 .
-├── simulacao_openfoam/       # Casos e configurações do OpenFOAM
-├── otimizador_cpp/           # Algoritmo de automação da Razão Áurea
-├── interpolacao_python/      # Scripts de mapeamento Newton/Delaunay + RBF
-├── logs/                     # Históricos de execução dos ensaios de otimização
-└── docs/                     # Relatório completo e figuras
+├── README.md                                  # Este arquivo
+├── RELATORIO_FINAL_MONIQUE.pdf                # Relatório completo do trabalho
+├── otimizador_razao_aurea.cpp                 # Algoritmo de automação da otimização (Problema 1)
+├── teste_perdas_teorico_unidimensional.py     # Prova de conceito 1D da interpolação (Newton/splines)
+└── interpolacao_tridimensional.py             # Mapeamento 3D das perdas eletromagnéticas (Delaunay + RBF)
 ```
+
+- **`otimizador_razao_aurea.cpp`**: orquestra o ciclo completo do Problema 1 — define o intervalo de busca segundo a proporção áurea, edita o dicionário `0/fluid/U` do OpenFOAM, decompõe e executa o *solver* `chtMultiRegionSimpleFoam` em paralelo, lê os arquivos `.dat` de pós-processamento e calcula a função objetivo a cada iteração.
+- **`teste_perdas_teorico_unidimensional.py`**: valida teoricamente, em uma malha 1D simplificada, o formalismo de Diferenças Divididas de Newton e *splines* antes de sua expansão para o domínio 3D.
+- **`interpolacao_tridimensional.py`**: implementa o Problema 2 completo — leitura dos dados exportados do ANSYS Maxwell, cálculo analítico das perdas ($P_{dc,vol}$ e $p_{v,ac}$), interpolação via Tetraedrização de Delaunay (`LinearNDInterpolator`) no volume interno e suavização por RBF (`RBFInterpolator`) nas fronteiras, exportando o campo `Q_em` no formato nativo do OpenFOAM.
 
 ## Status
 
