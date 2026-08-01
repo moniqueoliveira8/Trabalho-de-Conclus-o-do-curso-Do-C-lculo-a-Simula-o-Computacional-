@@ -4,6 +4,11 @@ Projeto desenvolvido como parte do curso **Do Cálculo à Simulação Computacio
 
 **Autora:** Monique Caroline Silva Oliveira
 
+Foram produzidos dois vídeos de apresentação de 5 minutos sobre o projeto:
+
+🎥 [Vídeo de apresentação (5 min)](https://youtu.be/IugZjH1hANQ?si=5A0VvSGY5eE9tTSJ)
+🤖 [Vídeo gerado com NotebookLM, IA (5 min)](https://youtu.be/9TKOQR8ngyk?si=JY7H_fZE1s2yi5-b)
+
 ---
 
 ## Sobre o projeto
